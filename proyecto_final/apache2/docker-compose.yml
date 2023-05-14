@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  https:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: paurique4
+    volumes:
+      - apache_logs:/var/log/apache2
+      - certs:/etc/apache2/ssl
+    ports:
+      - "443:443"
+
+volumes:
+  apache_logs:
+  certs:
