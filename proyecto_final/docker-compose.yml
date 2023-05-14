@@ -1,0 +1,43 @@
+version: '3'
+services:
+  wordpress:
+    image: wordpress
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+      - ftp
+      - apache
+      - ssh
+    volumes:
+      - ./wordpress:/var/www/html/wp-content
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: reyney15
+      MYSQL_DATABASE: taskhub
+      MYSQL_USER: paurique
+      MYSQL_PASSWORD: reyney15
+
+  ftp:
+    image: buenaftp
+    ports:
+      - 21:21
+      - 21000-21100:21000-21100
+    volumes:
+      - ./ftp:/path/to/ftp/directory
+
+  apache:
+    image: apache
+    ports:
+      - 8181:8181
+    volumes:
+      - ./apache:/path/to/apache/directory
+
+  ssh:
+    image: sshd
+    ports:
+      - 22:22
+    volumes:
+      - ./ssh:/path/to/ssh/directory
