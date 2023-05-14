@@ -1,9 +1,0 @@
-version: '3'
-services:
-  ssh:
-    build: .
-    image: ubuntu:20.04
-    ports:
-      - "25:25"
-    volumes:
-      - ./data:/data
