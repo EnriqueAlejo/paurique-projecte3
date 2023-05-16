@@ -2,7 +2,7 @@ FROM ubuntu:latest
 RUN apt-get update && \
     apt-get install -y vsftpd
     
-COPY vstfpd.conf /etc/vsftpd.conf
+COPY vsftpd.conf /etc/vsftpd.conf
 
 EXPOSE 21
 
